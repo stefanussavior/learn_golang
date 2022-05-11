@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Learning html/template Actions</title>
+    </head>
+    <body>
+        <table>
+            <td>{{"Name"}} : </td>
+            <td>{{.Name}}</td>
+            <td>Gender</td>
+            <td>{{$gender := .Gender}}</td>
+            <td style="text-transform:capitalize;"> : {{$gender}}</td>
+            <td>Hobbies</td>
+            <td>:
+                {{range $index, $elem := .Hobbies}}
+                {{$elem}},
+                {{end}}
+            </td>
+        </table>
+        <p>{{.Info.Affiliation}} ({{.Info.GetAffiliationDetailInfo}})</p>
+        {{with .Info}}
+        <p>Address : {{.Address}} </p>
+        {{end}}
+        {{if eq .Name "Bruce Wayne"}}
+        <p>I'am a badman</p>
+        {{end}}
+    </body>
+</html>
